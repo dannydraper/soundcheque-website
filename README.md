@@ -2,7 +2,7 @@
 
 Support, privacy policy, and features site for [SoundCheque](https://github.com/dannydraper/SoundCheque) — the invoicing app for gigging musicians.
 
-**Live:** [soundcheque.netlify.app](https://soundcheque.netlify.app) — deployed via Netlify, which auto-deploys on every push to `main`.
+**Live:** [soundcheque.dannydraper.co.uk](https://soundcheque.dannydraper.co.uk) — deployed via Netlify, which auto-deploys on every push to `main`. (The underlying `soundcheque.netlify.app` URL still works but isn't the canonical one.)
 
 Plain static HTML/CSS, no build step. Pages:
 
