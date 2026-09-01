@@ -1,0 +1,339 @@
+/* SoundCheque marketing/support site — shared stylesheet
+   Palette and glyph derive directly from the app icon: gold-to-rose
+   gradient field, ink-navy glyph, rose "carbon copy" accent. */
+
+:root {
+  --gold: #F6CD7B;
+  --rose: #E8879A;
+  --rose-deep: #C15D74;
+  --ink: #16324F;
+  --ink-soft: #3C5670;
+  --paper: #FBF6EC;
+  --paper-dim: #F1E8D6;
+  --paper-card: #FFFFFF;
+  --line: rgba(22, 50, 79, 0.14);
+  --shadow: rgba(22, 50, 79, 0.10);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --max-width: 1080px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #F3EEE0;
+    --ink-soft: #C7CFDA;
+    --paper: #0E1D2E;
+    --paper-dim: #142A40;
+    --paper-card: #16324F;
+    --line: rgba(243, 238, 224, 0.14);
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 560; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
+
+a { color: var(--rose-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+a:hover { color: var(--ink); }
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Nav */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Fraunces", serif;
+  font-weight: 650;
+  font-size: 1.15rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: 22%;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.brand:hover { color: var(--ink); }
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--rose-deep);
+}
+
+/* Hero */
+.hero {
+  padding: 40px 28px 70px;
+  text-align: center;
+}
+
+.hero-glyph {
+  width: 96px;
+  height: 96px;
+  border-radius: 22%;
+  margin: 0 auto 28px;
+  box-shadow: 0 12px 32px var(--shadow);
+}
+
+.hero h1 {
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .lede {
+  max-width: 52ch;
+  margin: 0 auto 32px;
+  font-size: 1.1rem;
+}
+
+.button-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  color: var(--ink);
+}
+
+.btn-primary:hover { color: var(--ink); opacity: 0.92; }
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-secondary:hover { border-color: var(--rose-deep); color: var(--ink); }
+
+/* Signature dashed rule, borrowed from the invoice PDF's own item separators */
+.dashed-rule {
+  border: none;
+  border-top: 1.5px dashed var(--line);
+  margin: 56px 0;
+}
+
+/* Feature grid */
+.section-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.feature-card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 26px;
+  box-shadow: 0 4px 18px var(--shadow);
+}
+
+.feature-card .glyph {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.feature-card h3 { margin-bottom: 8px; }
+.feature-card p { font-size: 0.94rem; margin-bottom: 0; }
+
+/* Template swatch strip on the features page */
+.swatch-strip {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1.5px var(--line);
+}
+
+/* Prose pages (privacy / support / contact) */
+.prose-page {
+  padding: 56px 28px 90px;
+}
+
+.prose-page .wrap {
+  max-width: 720px;
+}
+
+.prose-page h2 {
+  margin-top: 2.2em;
+}
+
+.prose-page h2:first-of-type { margin-top: 0.6em; }
+
+.prose-page ul {
+  color: var(--ink-soft);
+  padding-left: 1.3em;
+}
+
+.prose-page li { margin-bottom: 0.5em; }
+
+.updated-date {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  margin-bottom: 2.5em;
+}
+
+.contact-card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  box-shadow: 0 4px 18px var(--shadow);
+  margin: 28px 0;
+}
+
+.contact-card a.btn { margin-top: 6px; }
+
+.faq-item {
+  margin-bottom: 28px;
+}
+
+.faq-item h3 {
+  margin-bottom: 6px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 28px;
+  margin-top: 40px;
+}
+
+.site-footer .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.footer-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.footer-links a:hover { color: var(--rose-deep); }
+
+@media (max-width: 620px) {
+  .site-nav { flex-direction: column; gap: 16px; }
+  .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+  .site-footer .wrap { flex-direction: column; text-align: center; }
+}
